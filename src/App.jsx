@@ -1,25 +1,26 @@
 import "./App.css";
-import ThemeCustomization from '@/assets/themes';
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
+import ThemeCustomization from "@/assets/themes";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import CompanyForm from "./components/CompanyForm";
 
 // import Dashboard from "./components/Dashboard";
 
 function App() {
-
   return (
     <ThemeCustomization>
-    Hello
-    <AppBar position="fixed" color="primary">
-      <Toolbar>
-        <Typography variant="h6">
-          Hello
-        </Typography>
-      </Toolbar>
-    </AppBar>
+      <AppBar position="fixed" color="primary">
+        <Toolbar>
+          <Typography variant="h6">Hari Billing App</Typography>
+          <Typography variant="h6">Hari Billing App</Typography>
+          <Typography variant="h6">Hari Billing App</Typography>
+        </Toolbar>
+      </AppBar>
+
+      <CompanyForm />
       {/* <Dashboard /> */}
-     </ThemeCustomization>
+    </ThemeCustomization>
   );
 }
 
