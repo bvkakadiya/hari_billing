@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 
-const CompanyForm = (props) => {
+const CompanyForm = ({onClose}) => {
   const categories = ["Gujarat", "Rajesthan", "Maharastra", "Madhay Pradesh"];
 
   const handleSubmit = async (values) => {
@@ -57,6 +57,7 @@ const CompanyForm = (props) => {
       };
       tx.oncomplete = () => {
         console.log("Data added to the object store");
+        onClose();
       };
     };
   };
@@ -274,6 +275,8 @@ const CompanyForm = (props) => {
   );
 };
 
-CompanyForm.propTypes = {};
+CompanyForm.propTypes = {
+    onClose: PropTypes.func,
+};
 
 export default CompanyForm;
