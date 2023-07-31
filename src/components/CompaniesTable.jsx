@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Container from '@mui/material/Container';
-import { DataGrid } from '@mui/x-data-grid';
-import Paper from '@mui/material/Paper';
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import Container from "@mui/material/Container";
+import { DataGrid } from "@mui/x-data-grid";
+import Paper from "@mui/material/Paper";
 
 const columns = [
-  { field: 'name', headerName: 'Name', width: 200 },
-  { field: 'address', headerName: 'Address', width: 300 },
-  { field: 'gstNumber', headerName: 'GST Number', width: 150 },
+  { field: "name", headerName: "Name", width: 200 },
+  { field: "address", headerName: "Address", width: 300 },
+  { field: "gstNumber", headerName: "GST Number", width: 150 },
 ];
 
-const CompaniesTable = (props) => {
+const CompaniesTable = ({ refresh }) => {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
@@ -30,24 +30,26 @@ const CompaniesTable = (props) => {
         console.log(data);
         // give data to id property
         const newData = data.map((item, index) => {
-            item.id = index
-            return item
-        })
+          item.id = index;
+          return item;
+        });
         setCompanies(newData);
       };
     };
-  }, []);
+  }, [refresh]);
 
   return (
     <Container maxWidth="lg">
       <h1>Companies Table</h1>
-      <Paper sx={{ height: 400, width: '100%' }}>
+      <Paper sx={{ height: 400, width: "100%" }}>
         <DataGrid rows={companies} columns={columns} pageSize={5} />
       </Paper>
     </Container>
   );
 };
 
-CompaniesTable.propTypes = {};
+CompaniesTable.propTypes = {
+  refresh: PropTypes.bool,
+};
 
 export default CompaniesTable;
